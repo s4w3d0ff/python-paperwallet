@@ -29,7 +29,7 @@ def makePaper(publickey, privatekey, background='paperwallet.png', fontsize=10, 
 	d.text((15,172), publickey, font=fnt, fill=(0,0,0,250))
 	d.text((15,537), privatekey, font=fnt, fill=(0,0,0,250))
 	
-	# Merge the 2 layers and rotate -90 degrees
+	# Merge the 2 layers and rotate 90 degrees
 	out = Image.alpha_composite(base, txt)
 	out.rotate(90).show()
 

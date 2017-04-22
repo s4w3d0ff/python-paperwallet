@@ -1,23 +1,23 @@
 """ base58 encoding / decoding functions """
- 
+# https://pastebin.com/TghewQTM
 alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 base_count = len(alphabet)
        
 def encode(num):
     """ Returns num in a base58-encoded string """
     encode = ''
-   
+    
     if (num < 0):
         return ''
-   
+    
     while (num >= base_count):    
         mod = num % base_count
         encode = alphabet[mod] + encode
         num = num // base_count
- 
+    
     if (num):
         encode = alphabet[num] + encode
- 
+    
     return encode
  
 def decode(s):
@@ -28,5 +28,5 @@ def decode(s):
     for char in s:
         decoded += multi * alphabet.index(char)
         multi = multi * base_count
-       
+        
     return decoded
